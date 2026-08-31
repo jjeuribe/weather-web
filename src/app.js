@@ -21,4 +21,11 @@ app.get('/', (request, response) => {
   })
 })
 
+app.use((request, response) => {
+  response.render('404', {
+    title: '404',
+    errorMessage: 'Page Not Found'
+  })
+})
+
 module.exports = app
