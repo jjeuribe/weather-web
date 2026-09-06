@@ -21,6 +21,18 @@ app.get('/', (request, response) => {
   })
 })
 
+app.get('/weather', (request, response) => {
+  const { address } = request.query
+
+  if (!address) {
+    return response.send({
+      error: 'You must provide an address'
+    })
+  }
+
+  response.status(200).send({ address })
+})
+
 app.use((request, response) => {
   response.render('404', {
     title: '404',
